@@ -1,108 +1,67 @@
-# SIT Lab website
+# SIT Lab — scrolling editorial redesign
 
-A responsive, five-page website for **SIT Lab — Spatial-Info(rmation)-(in)Telligence**.
+This package updates the existing `sit-lab/` website in `Octopolugal/Octopolugal.github.io`.
 
-## Preview on your computer
+The new design includes a long homepage, an aerial landscape opening, alternating light and dark sections, staggered project stories, student photo grids, publications with expandable abstracts, and presentations. It keeps five pages and the same editable content file.
 
-Unzip the package, then double-click `index.html`. The complete website works locally, including navigation, the mobile menu, and expandable publication abstracts. No installation, account, build process, or web server is required.
+## Preview
 
-The site includes Home, Students, Published work, Presentations, and Projects. Its navy and slate palette follows your supplied logo. The JPEG is extracted directly from the original PDF; the PDF is included unchanged.
+Open `index.html` from the extracted folder in a browser. No installation, account, build step, or server is required. The separate `SIT-Lab-preview.html` download is a self-contained preview of all five pages.
 
-## Replace the sample content
+## Update your GitHub Pages site
 
-**All student profiles, publication entries, presentation entries, and projects are explicitly labeled examples.** The homepage research descriptions are proposed introductory copy, not verified statements about the lab. No real students, publications, affiliations, funding claims, or contact details have been invented.
+1. Extract `SIT-Lab-GitHub-Pages.zip`. The enclosed folder must remain named `sit-lab`.
+2. Open your repository at https://github.com/Octopolugal/Octopolugal.github.io on the `main` branch.
+3. Choose **Add file → Upload files** at the repository root.
+4. Drag in the whole `sit-lab` folder. Check that paths begin with `sit-lab/`, such as `sit-lab/index.html`. The new files replace files with the same paths.
+5. Enter a message such as `Refresh SIT Lab design` and choose **Commit changes**.
+6. Wait for the Pages deployment in the **Actions** tab, then visit https://octopolugal.github.io/sit-lab/.
 
-Open `assets/content.js` in a text editor. This is the only file needed for routine content updates.
+This package does not alter the existing root homepage, Jekyll configuration, or Pages settings. Do not upload the ZIP itself or move its HTML files to the repository root. If you have changed your content since this package was prepared, keep your newer `sit-lab/assets/content.js`; the new design uses the same fields.
 
-1. Fill in the optional lab institution, location, email, Google Scholar URL, and GitHub URL.
-2. Replace the student, publication, presentation, and project records with your real content.
-3. Set `sample: false` on each completed record. Each page's preview notice disappears automatically when all its entries are real.
-4. Save the file and refresh the page. Use a hard refresh if your browser is caching older content.
+## Change lab content
 
-You can duplicate records to add more entries or delete them to remove entries. Keep commas between objects and put text in double quotes. Escape any double quotes inside text as `\"`, or use apostrophes instead. Empty lists, such as `students: []`, display a clean empty state.
+Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. The homepage and the relevant archive page update from the same records.
 
-### Student photos
+All current student, publication, presentation, and project records are **examples**. Replace them with actual details, then set each record's `sample` field to `false`. The relevant preview notice disappears when every record on that page is real. No affiliation, funding, publication, or student information has been invented.
 
-Copy photos into `assets/students/`, then set the student's `photo` to a relative path:
+- **Lab:** Edit `name`, `fullName`, `tagline`, and `description`. Optional institution, location, email, Scholar, and GitHub links appear only when filled in.
+- **Students:** Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
+- **Publications:** Edit title, authors, venue, and year. Use `year: "2026"`; entries sort newest first. Add `paperUrl`, `codeUrl`, or `dataUrl` for resource links. PDF paths can be relative, such as `assets/papers/paper.pdf`.
+- **Presentations:** Edit title, speaker, event, and summary. Use dates such as `date: "2026-09-30"`. Add `slidesUrl`, `videoUrl`, and `eventUrl` when available. Entries sort newest first.
+- **Projects:** Edit title, category, status, summary, question, and approach. Optional team, funding, project website, and code links appear when provided. You may add `image: "assets/images/project-photo.jpg"` and `imageAlt: "A description of the image"` to any project.
 
-```javascript
-{
-  name: "Full student name",
-  role: "Ph.D. student",
-  interests: "Spatial reasoning · Geospatial AI",
-  photo: "assets/students/student-name.jpg",
-  photoPosition: "center",
-  website: "",
-  email: "",
-  sample: false
-}
-```
+To add entries, duplicate an object in the relevant list. Keep commas between objects and quotes around text. Use `[]` for an empty list. Optional links are hidden until a real URL is supplied.
 
-Portrait photos around 800 × 1000 pixels work well. Use `photoPosition: "top"` if the crop needs to favor the face. The layout also supports `center`, `bottom`, `left`, and `right`. If a photo is absent or fails to load, the card shows a labeled photo placeholder.
+## Change design or page headings
 
-### Papers and presentations
+- `index.html`: homepage headline, introductory framing, and section headings.
+- `students.html`, `publications.html`, `presentations.html`, `projects.html`: individual page headings and introductions.
+- `assets/styles.css`: colors, typography, layout, spacing, responsive rules, and transitions. The main colors are defined at the top.
+- `assets/site.js`: content rendering, menu, scroll progress, and motion.
 
-- Add a paper's PDF to `assets/papers/` and set `paperUrl: "assets/papers/paper-name.pdf"`, or paste a full DOI/publisher/preprint URL.
-- Optional `codeUrl` and `dataUrl` fields add resource links.
-- Put slide PDFs in `assets/slides/` and set `slidesUrl` accordingly.
-- Use a full recording URL for `videoUrl` and an event URL for `eventUrl`.
-- Presentation dates use `YYYY-MM-DD`, for example `2026-09-29`.
-- Publication years use `"2026"`. Papers group by year, newest first; presentations sort by date, newest first.
-- Empty URL fields hide their links. There are no pretend downloads or inactive resource buttons.
+The original supplied PDF logo is included unchanged. Its extracted JPEG appears in the footer. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
 
-### Projects
+## Motion and accessibility
 
-Each project supports a title, topic, status, summary, research question, approach, optional team, funding acknowledgement, project website, and code link. Keep the example label until the details have been replaced.
+The site uses one-time section reveals, subtle desktop parallax, hover image movement, and a reading-progress line. It does not take over scrolling. The short scroll indicator animation stops after two cycles. A **Reduce motion** control in the footer disables movement and remembers the choice on that browser; the operating system's reduced-motion preference is also respected. The phone layout omits parallax.
 
-### Design and page text
+Navigation supports keyboard use and includes a skip link. The mobile menu closes on selection or Escape. The editable lists need JavaScript; page headings, navigation, and framing remain available without it.
 
-- Change colors and layout in `assets/styles.css`.
-- Edit each page's heading, introductory copy, title, and search description in its corresponding HTML file.
-- The home headline is in `index.html`.
-- The optional footer contact details appear after you fill them in under `lab` in `assets/content.js`.
-- All fonts and images are local or system-provided; the site makes no third-party font, analytics, or tracking requests.
+All scripts, styles, and images are local. There are no external font requests, analytics, trackers, or build dependencies.
 
-## Publish in your existing GitHub repository
+## Package contents
 
-The target repository is `Octopolugal/Octopolugal.github.io`. GitHub Pages is already serving the existing site. This package adds a separate `sit-lab/` folder; it does not replace the existing homepage or Jekyll configuration.
-
-**SIT Lab has not been uploaded or published yet.** The connected integration could read the repository but GitHub rejected its upload with `Resource not accessible by integration` (403).
-
-### Upload from your own browser
-
-1. Extract `SIT-Lab-GitHub-Pages.zip`. It contains a folder named `sit-lab`.
-2. Open https://github.com/Octopolugal/Octopolugal.github.io and select the `main` branch.
-3. Choose **Add file → Upload files**.
-4. Drag the entire `sit-lab` folder into the upload area. Keep the enclosing folder: the uploaded paths should start with `sit-lab/`, for example `sit-lab/index.html`. Do not upload the ZIP or place the HTML files at the repository root.
-5. Enter the commit message `Add SIT Lab website`, select **Commit directly to the main branch**, and click **Commit changes**.
-6. GitHub Pages should publish the addition using the repository's existing settings. When deployment finishes, the intended URL is https://octopolugal.github.io/sit-lab/.
-
-Do not change the existing root `_config.yml`, homepage, or Pages settings. There is no root `.nojekyll` file in this package. If publishing does not run or fails, share the status from the repository's Actions tab so the cause can be checked.
-
-### Let the connected GitHub app upload the files
-
-The integration needs repository access before it can write. In GitHub, review the installed app associated with the connection and its repository selection. If it is installed, use **Configure** and grant access to `Octopolugal.github.io`. If no matching installation is present, complete repository authorization through the GitHub connection's setup. Repository selection alone does not add write permissions if the app does not request them.
-
-GitHub's official guides:
-
-- [Adding a file to a repository](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
-- [Reviewing and modifying installed GitHub Apps](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
-
-## Files
-
-| File or folder | Purpose |
+| File | Purpose |
 | --- | --- |
-| `index.html` | Homepage |
+| `index.html` | Long scrolling homepage |
 | `students.html` | Student photo gallery |
-| `publications.html` | Published work and expandable abstracts |
+| `publications.html` | Published work and abstracts |
 | `presentations.html` | Talks, posters, slides, and recordings |
-| `projects.html` | Ongoing research projects |
-| `assets/content.js` | Editable lab content |
-| `assets/site.js` | Content rendering and mobile menu |
-| `assets/styles.css` | Responsive design |
-| `assets/images/` | Your original PDF logo and its extracted JPEG |
-| `assets/students/` | Student photos |
-| `assets/papers/` | Paper PDFs |
-| `assets/slides/` | Slide PDFs |
+| `projects.html` | Project details |
+| `assets/content.js` | Routine content updates |
+| `assets/styles.css` | Visual design |
+| `assets/site.js` | Rendering and interactions |
+| `assets/images/` | Original logo, PDF, and landscape illustration |
 
-The website uses JavaScript to render its editable content. Navigation, page headings, and homepage framing remain available without JavaScript; the lists include a notice to enable it.
+The redesign has been packaged for GitHub Pages. Uploading and committing the files publishes the changes; generating or opening the preview does not change the live site.
