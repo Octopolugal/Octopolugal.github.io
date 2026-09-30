@@ -1,64 +1,67 @@
-# academic-homepage
+# SIT Lab — scrolling editorial redesign
 
-![Preview](assets/images/etc/preview.png)
+This package updates the existing `sit-lab/` website in `Octopolugal/Octopolugal.github.io`.
 
-[![pages-build-deployment](https://github.com/luost26/academic-homepage/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/luost26/academic-homepage/actions/workflows/pages/pages-build-deployment)
-[![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fluost26.github.io%2Facademic-homepage)](https://validator.nu/?doc=https%3A%2F%2Fluost26.github.io%2Facademic-homepage)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fluost26%2Facademic-homepage&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-[![GitHub stars](https://img.shields.io/github/stars/luost26/academic-homepage)](https://github.com/luost26/academic-homepage)
-[![GitHub forks](https://img.shields.io/github/forks/luost26/academic-homepage)](https://github.com/luost26/academic-homepage/forks)
+The new design includes a long homepage, an aerial landscape opening, alternating light and dark sections, staggered project stories, student photo grids, publications with expandable abstracts, and presentations. It keeps five pages and the same editable content file.
 
-A GitHub Pages (Jekyll) template for personal academic website. Click [here](https://luost.me/academic-homepage/) to see the demo.
+## Preview
 
-## User Community
+Open `index.html` from the extracted folder in a browser. No installation, account, build step, or server is required. The separate `SIT-Lab-preview.html` download is a self-contained preview of all five pages.
 
-[:star:](https://luost.me/)
-[:star:](https://cch1999.github.io/)
-[:star:](https://kyrrego.github.io/)
-[:star:](https://ced3-han.github.io/)
-[:star:](https://lihengchen.com/)
-[:star:](https://hpwang-whu.github.io/)
-[:star:](https://zhang-yingyi.github.io/)
-[:star:](https://wby24.github.io/)
-[:star:](https://pengfeixu.com/)
-[:star:](https://boqiuphd.github.io/)
-[:star:](https://www.huabing.li/)
-[:star:](https://xiecuiying.github.io/)
-[:star:](https://hannyang.github.io/)
-[:star:](https://king-play.github.io/)
+## Update your GitHub Pages site
 
-:hugs: Feel free to tell us if you are using this template for your website by creating an issue [here](https://github.com/luost26/academic-homepage/issues/new?assignees=&labels=&projects=&template=user-report.md&title=I+am+using+this+template%21).
+1. Extract `SIT-Lab-GitHub-Pages.zip`. The enclosed folder must remain named `sit-lab`.
+2. Open your repository at https://github.com/Octopolugal/Octopolugal.github.io on the `main` branch.
+3. Choose **Add file → Upload files** at the repository root.
+4. Drag in the whole `sit-lab` folder. Check that paths begin with `sit-lab/`, such as `sit-lab/index.html`. The new files replace files with the same paths.
+5. Enter a message such as `Refresh SIT Lab design` and choose **Commit changes**.
+6. Wait for the Pages deployment in the **Actions** tab, then visit https://octopolugal.github.io/sit-lab/.
 
+This package does not alter the existing root homepage, Jekyll configuration, or Pages settings. Do not upload the ZIP itself or move its HTML files to the repository root. If you have changed your content since this package was prepared, keep your newer `sit-lab/assets/content.js`; the new design uses the same fields.
 
-## Need Help?
+## Change lab content
 
-If you run into **any** issues while using this template, or have suggestions for improvements, please don't hesitate to create an issue [here](https://github.com/luost26/academic-homepage/issues/new).
+Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. The homepage and the relevant archive page update from the same records.
 
+All current student, publication, presentation, and project records are **examples**. Replace them with actual details, then set each record's `sample` field to `false`. The relevant preview notice disappears when every record on that page is real. No affiliation, funding, publication, or student information has been invented.
 
-## Getting Started
+- **Lab:** Edit `name`, `fullName`, `tagline`, and `description`. Optional institution, location, email, Scholar, and GitHub links appear only when filled in.
+- **Students:** Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
+- **Publications:** Edit title, authors, venue, and year. Use `year: "2026"`; entries sort newest first. Add `paperUrl`, `codeUrl`, or `dataUrl` for resource links. PDF paths can be relative, such as `assets/papers/paper.pdf`.
+- **Presentations:** Edit title, speaker, event, and summary. Use dates such as `date: "2026-09-30"`. Add `slidesUrl`, `videoUrl`, and `eventUrl` when available. Entries sort newest first.
+- **Projects:** Edit title, category, status, summary, question, and approach. Optional team, funding, project website, and code links appear when provided. You may add `image: "assets/images/project-photo.jpg"` and `imageAlt: "A description of the image"` to any project.
 
-1. First, fork this repository or click the "Use this template" button to create a new repository. The name of the repository should be `<your-github-username>.github.io` (click [here](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites) to learn more about naming a GitHub Pages repository).
-   - If you plan to customize the functionality or style of the template, and do not want to get updates from this repository, choose "Use this template".
-   - If you plan to only edit the content (biography, publications, news, etc.), and would like to get updates from this repository, choose "Fork".
-   - If you want to contribute to this project, fork the repository and submit a pull request.
+To add entries, duplicate an object in the relevant list. Keep commas between objects and quotes around text. Use `[]` for an empty list. Optional links are hidden until a real URL is supplied.
 
-### Running Locally (Debug & Preview)
+## Change design or page headings
 
-2. Follow the **step 1** and **step 2** of the instruction [here](https://jekyllrb.com/docs/) to install prerequisites and jekyll.
+- `index.html`: homepage headline, introductory framing, and section headings.
+- `students.html`, `publications.html`, `presentations.html`, `projects.html`: individual page headings and introductions.
+- `assets/styles.css`: colors, typography, layout, spacing, responsive rules, and transitions. The main colors are defined at the top.
+- `assets/site.js`: content rendering, menu, scroll progress, and motion.
 
-3. Clone your forked repository to your local machine.
+The original supplied PDF logo is included unchanged. Its extracted JPEG appears in the footer. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
 
-4. Run the following command in the root directory of the repository:
+## Motion and accessibility
 
-   ```bash
-   bundle exec jekyll serve
-   ```
+The site uses one-time section reveals, subtle desktop parallax, hover image movement, and a reading-progress line. It does not take over scrolling. The short scroll indicator animation stops after two cycles. A **Reduce motion** control in the footer disables movement and remembers the choice on that browser; the operating system's reduced-motion preference is also respected. The phone layout omits parallax.
 
-5. Browse to the displayed URL to see the website.
+Navigation supports keyboard use and includes a skip link. The mobile menu closes on selection or Escape. The editable lists need JavaScript; page headings, navigation, and framing remain available without it.
 
-### Deploying to GitHub Pages
+All scripts, styles, and images are local. There are no external font requests, analytics, trackers, or build dependencies.
 
-2. Go to the repository settings and enable GitHub Pages. Detailed instructions can be found [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+## Package contents
 
-3. Navigate to your created website, and follow the instructions displayed on the homepage (if any) to finalize the setup.
+| File | Purpose |
+| --- | --- |
+| `index.html` | Long scrolling homepage |
+| `students.html` | Student photo gallery |
+| `publications.html` | Published work and abstracts |
+| `presentations.html` | Talks, posters, slides, and recordings |
+| `projects.html` | Project details |
+| `assets/content.js` | Routine content updates |
+| `assets/styles.css` | Visual design |
+| `assets/site.js` | Rendering and interactions |
+| `assets/images/` | Original logo, PDF, and landscape illustration |
 
+The redesign has been packaged for GitHub Pages. Uploading and committing the files publishes the changes; generating or opening the preview does not change the live site.
