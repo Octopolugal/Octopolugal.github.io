@@ -21,12 +21,12 @@ This package preserves the site content from main-branch commit `6aee06b` and ad
 
 ## Change lab content
 
-Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. The homepage and the relevant archive page update from the same records.
+Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. People profiles use the existing `students` list; the People page retains `students.html` so existing links keep working. The homepage and the relevant archive page update from the same records.
 
 The publication section contains **26 records** from the supplied Google Scholar BibTeX export. Existing student profiles, photos, presentations, and projects are preserved. Remaining records with `sample: true` still display an example label; replace their details and change `sample` to `false` when ready.
 
 - **Lab:** Edit `name`, `fullName`, `tagline`, and `description`. Optional institution, location, email, Scholar, and GitHub links appear only when filled in.
-- **Students:** Photos now appear in full color, including before hover. Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
+- **People:** Photos now appear in full color, including before hover. Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
 - **Publications:** Edit title, authors, venue, and year. Use `year: "2026"`; entries sort newest first. Add `paperUrl`, `codeUrl`, or `dataUrl` for resource links. PDF paths can be relative, such as `assets/papers/paper.pdf`.
 - **Presentations:** Edit title, speaker, event, and summary. Use dates such as `date: "2026-09-30"`. Add `slidesUrl`, `videoUrl`, and `eventUrl` when available. Entries sort newest first.
 - **Projects:** Edit title, category, status, summary, question, and approach. Optional team, funding, project website, and code links appear when provided. You may add `image: "assets/images/project-photo.jpg"` and `imageAlt: "A description of the image"` to any project.
@@ -57,7 +57,7 @@ All scripts, styles, and images are local. There are no external font requests, 
 | File | Purpose |
 | --- | --- |
 | `index.html` | Long scrolling homepage |
-| `students.html` | Student photo gallery |
+| `students.html` | People and lab member profiles |
 | `publications.html` | Published work and abstracts |
 | `presentations.html` | Talks, posters, slides, and recordings |
 | `projects.html` | Project details |

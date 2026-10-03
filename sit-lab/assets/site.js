@@ -51,8 +51,8 @@
     const position=/^(center|top|bottom|left|right)$/.test(student.photoPosition)?student.photoPosition:"center";
     return `<article class="student-card" data-reveal style="--delay:${i%4*65}ms"><div class="portrait${photo?" has-photo":""}">${photo?`<img src="${escape(photo)}" alt="${escape(student.name)}" loading="lazy" style="object-position:${position}">`:""}<div class="portrait-placeholder"${photo?" hidden":""}><span class="portrait-number" aria-hidden="true">${number(i)}</span><span>Photo to come</span></div>${student.sample?'<span class="portrait-label">Sample profile</span>':""}</div><div class="student-body"><${heading}>${escape(student.name)}</${heading}><p class="student-role">${escape(student.role)}</p><p class="student-interests">${escape(student.interests)}</p><div class="resource-links">${link(student.website,"Website")}${emailLink(student.email,"Email")}</div></div></article>`;
   }
-  set("#student-grid",students.length?students.map((s,i)=>studentCard(s,i,"h2")).join(""):empty("Meet our students soon","Student profiles will be added here."));
-  set("#home-student-grid",students.length?students.slice(0,4).map((s,i)=>studentCard(s,i,"h3")).join(""):empty("Meet our students soon","Student profiles will be added here."));
+  set("#student-grid",students.length?students.map((s,i)=>studentCard(s,i,"h2")).join(""):empty("Meet the people soon","Lab member profiles will be added here."));
+  set("#home-student-grid",students.length?students.slice(0,4).map((s,i)=>studentCard(s,i,"h3")).join(""):empty("Meet the people soon","Lab member profiles will be added here."));
   document.querySelectorAll(".portrait img").forEach(img=>{
     const fallback=()=>{img.hidden=true;img.parentElement.classList.remove("has-photo");img.parentElement.querySelector(".portrait-placeholder").hidden=false;};
     img.addEventListener("error",fallback);if(img.complete && !img.naturalWidth) fallback();
