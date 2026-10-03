@@ -42,7 +42,7 @@
     document.addEventListener("keydown",event=>{if(event.key==="Escape" && menu.getAttribute("aria-expanded")==="true"){closeMenu();menu.focus();}});
     document.addEventListener("click",event=>{if(!event.target.closest(".site-header")) closeMenu();});
     nav.addEventListener("click",event=>{if(event.target.closest("a")) closeMenu();});
-    window.addEventListener("resize",()=>{if(window.innerWidth>760) closeMenu();},{passive:true});
+    window.addEventListener("resize",()=>{if(window.innerWidth>880) closeMenu();},{passive:true});
   }
   set("#research-areas",list("researchAreas").map((area,i)=>`<article class="research-area" data-reveal><span class="index">${number(i)}</span><h3>${escape(area.title)}</h3><p>${escape(area.description)}</p></article>`).join(""));
   const students=list("students");

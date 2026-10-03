@@ -14,10 +14,10 @@ Open `index.html` from the extracted folder in a browser. No installation, accou
 2. Open your repository at https://github.com/Octopolugal/Octopolugal.github.io on the `main` branch.
 3. Choose **Add file → Upload files** at the repository root.
 4. Drag in the whole `sit-lab` folder. Check that paths begin with `sit-lab/`, such as `sit-lab/index.html`. The new files replace files with the same paths.
-5. Enter a message such as `Add publications and full-color student photos` and choose **Commit changes**.
+5. Enter a message such as `Add transparent light logo to all page headers` and choose **Commit changes**.
 6. Wait for the Pages deployment in the **Actions** tab, then visit https://octopolugal.github.io/sit-lab/.
 
-This package does not alter the existing root homepage, Jekyll configuration, or Pages settings. Do not upload the ZIP itself or move its HTML files to the repository root. This update includes the current student profiles from the main branch at commit `3a26b2c` and the 26 supplied publication records. If you make further edits after October 2, 2026, merge those edits into this package before uploading.
+This package preserves the site content from main-branch commit `6aee06b` and adds the approved header logo to all five pages. It includes the existing student profiles, photos, publications, presentations, projects, and footer logo. Do not upload the ZIP itself or move its HTML files to the repository root. If you make additional edits on GitHub after that commit, merge them into this package before uploading.
 
 ## Change lab content
 
@@ -40,7 +40,9 @@ To add entries, duplicate an object in the relevant list. Keep commas between ob
 - `assets/styles.css`: colors, typography, layout, spacing, responsive rules, and transitions. The main colors are defined at the top.
 - `assets/site.js`: content rendering, menu, scroll progress, and motion.
 
-The original supplied PDF logo is included unchanged. Its extracted JPEG appears in the footer. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
+The header uses `assets/images/sit-lab-mark-light.webp`, a square, text-free logo with lighter blue-gray facets and a transparent background. It appears beside the original “SIT Lab” wordmark at 28 pixels tall (26 pixels on mobile). Replace this file to change the header illustration; adjust `.brand-logo` in `assets/styles.css` to change its display size. Keep transparency when exporting a replacement. The descriptor remains visible and moves below the wordmark on narrow screens.
+
+The footer uses your existing `assets/images/sit-lab-logo.jpg`. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
 
 ## Motion and accessibility
 
