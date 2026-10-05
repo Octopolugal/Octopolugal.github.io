@@ -10,23 +10,23 @@ Open `index.html` from the extracted folder in a browser. No installation, accou
 
 ## Update your GitHub Pages site
 
-1. Extract `SIT-Lab-GitHub-Pages.zip`. The enclosed folder must remain named `sit-lab`.
+1. Extract `SIT-Lab-Full-Website.zip`. The enclosed folder must remain named `sit-lab`.
 2. Open your repository at https://github.com/Octopolugal/Octopolugal.github.io on the `main` branch.
 3. Choose **Add file → Upload files** at the repository root.
 4. Drag in the whole `sit-lab` folder. Check that paths begin with `sit-lab/`, such as `sit-lab/index.html`. The new files replace files with the same paths.
-5. Enter a message such as `Refresh SIT Lab design` and choose **Commit changes**.
+5. Enter a message such as `Add transparent light logo to all page headers` and choose **Commit changes**.
 6. Wait for the Pages deployment in the **Actions** tab, then visit https://octopolugal.github.io/sit-lab/.
 
-This package does not alter the existing root homepage, Jekyll configuration, or Pages settings. Do not upload the ZIP itself or move its HTML files to the repository root. If you have changed your content since this package was prepared, keep your newer `sit-lab/assets/content.js`; the new design uses the same fields.
+This package preserves the site content from main-branch commit `6aee06b` and adds the approved header logo to all five pages. It includes the existing student profiles, photos, publications, presentations, projects, and footer logo. Do not upload the ZIP itself or move its HTML files to the repository root. If you make additional edits on GitHub after that commit, merge them into this package before uploading.
 
 ## Change lab content
 
-Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. The homepage and the relevant archive page update from the same records.
+Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit your changes. People profiles use the existing `students` list; the People page retains `students.html` so existing links keep working. The homepage and the relevant archive page update from the same records.
 
-All current student, publication, presentation, and project records are **examples**. Replace them with actual details, then set each record's `sample` field to `false`. The relevant preview notice disappears when every record on that page is real. No affiliation, funding, publication, or student information has been invented.
+The publication section contains **26 records** from the supplied Google Scholar BibTeX export. Existing student profiles, photos, presentations, and projects are preserved. Remaining records with `sample: true` still display an example label; replace their details and change `sample` to `false` when ready.
 
 - **Lab:** Edit `name`, `fullName`, `tagline`, and `description`. Optional institution, location, email, Scholar, and GitHub links appear only when filled in.
-- **Students:** Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
+- **People:** Photos now appear in full color, including before hover. Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
 - **Publications:** Edit title, authors, venue, and year. Use `year: "2026"`; entries sort newest first. Add `paperUrl`, `codeUrl`, or `dataUrl` for resource links. PDF paths can be relative, such as `assets/papers/paper.pdf`.
 - **Presentations:** Edit title, speaker, event, and summary. Use dates such as `date: "2026-09-30"`. Add `slidesUrl`, `videoUrl`, and `eventUrl` when available. Entries sort newest first.
 - **Projects:** Edit title, category, status, summary, question, and approach. Optional team, funding, project website, and code links appear when provided. You may add `image: "assets/images/project-photo.jpg"` and `imageAlt: "A description of the image"` to any project.
@@ -40,7 +40,9 @@ To add entries, duplicate an object in the relevant list. Keep commas between ob
 - `assets/styles.css`: colors, typography, layout, spacing, responsive rules, and transitions. The main colors are defined at the top.
 - `assets/site.js`: content rendering, menu, scroll progress, and motion.
 
-The original supplied PDF logo is included unchanged. Its extracted JPEG appears in the footer. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
+The header uses `assets/images/sit-lab-mark-light.webp`, a square, text-free logo with lighter blue-gray facets and a transparent background. It appears beside the original “SIT Lab” wordmark at 28 pixels tall (26 pixels on mobile). Replace this file to change the header illustration; adjust `.brand-logo` in `assets/styles.css` to change its display size. Keep transparency when exporting a replacement. The descriptor remains visible and moves below the wordmark on narrow screens.
+
+The footer uses your existing `assets/images/sit-lab-logo.jpg`. The landscape is a locally stored AI-generated conceptual illustration, not a satellite image of a claimed location or research output. Replace it with your own research imagery whenever available.
 
 ## Motion and accessibility
 
@@ -55,7 +57,7 @@ All scripts, styles, and images are local. There are no external font requests, 
 | File | Purpose |
 | --- | --- |
 | `index.html` | Long scrolling homepage |
-| `students.html` | Student photo gallery |
+| `students.html` | People and lab member profiles |
 | `publications.html` | Published work and abstracts |
 | `presentations.html` | Talks, posters, slides, and recordings |
 | `projects.html` | Project details |
@@ -65,3 +67,33 @@ All scripts, styles, and images are local. There are no external font requests, 
 | `assets/images/` | Original logo, PDF, and landscape illustration |
 
 The redesign has been packaged for GitHub Pages. Uploading and committing the files publishes the changes; generating or opening the preview does not change the live site.
+
+
+## Publication import — October 2, 2026
+
+All 26 supplied entries are included. The homepage displays the three newest
+entries; the Published work page groups the complete list by year. The supplied
+export is preserved at `assets/papers/scholar-export.bib`; the website reads the
+formatted records in `assets/content.js`. Editing the BibTeX alone will not change
+the page.
+
+- Direct publisher, proceedings, repository, and arXiv links were added for 25 records.
+- LocDiff uses the published NeurIPS 2025 record and its final author order:
+  https://proceedings.neurips.cc/paper_files/paper/2025/hash/011864a6ed5c1e1c8f580f2578985109-Abstract-Conference.html
+- The KnowWhereGraph Ontology: A Showcase is identified as a JOWO 2023 workshop
+  paper, distinct from the 2025 journal article:
+  https://ceur-ws.org/Vol-3637/paper46.pdf
+- The TorchSpatial benchmark uses the published NeurIPS 2024 author list:
+  https://proceedings.neurips.cc/paper_files/paper/2024/hash/9449c2d5b0cc8c9a445752f3ff195a1c-Abstract-Datasets_and_Benchmarks_Track.html
+- The Place2Vec spelling and AI/model-name capitalization were normalized.
+- Diverse data! Diverse schemata? retains the export's 2021 online-publication year,
+  with its 2022 issue noted in the venue:
+  https://doi.org/10.3233/SW-210453
+- The AGU entry is labeled Conference abstract. No paper link is invented.
+- SSIF is under Undated / Manuscript because its export omits the year and venue.
+  Its OpenReview manuscript is linked without claiming conference acceptance.
+  Supply the intended citation year and publication venue to complete this record.
+- Entries ending in “et al.” retain the export's truncated author lists unless a
+  complete list was checked against the proceedings. No abstracts were invented.
+
+Your original logo PDF and both current student photo files are included unchanged.

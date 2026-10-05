@@ -1,0 +1,1 @@
+Add student photographs here. Set the photo field in assets/content.js to a path such as assets/students/student-name.jpg. Existing photos are in assets/images/; both current student photos are included.
