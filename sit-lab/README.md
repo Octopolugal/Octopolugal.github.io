@@ -6,18 +6,18 @@ The new design includes a long homepage, an aerial landscape opening, alternatin
 
 ## Preview
 
-Open `index.html` from the extracted folder in a browser. No installation, account, build step, or server is required. The separate `SIT-Lab-preview.html` download is a self-contained preview of all five pages.
+Open `sit-lab/index.html` inside the extracted `Octopolugal.github.io-main` folder in a browser. No installation, account, build step, or server is required. All five pages and their assets are included and work locally.
 
 ## Update your GitHub Pages site
 
-1. Extract `SIT-Lab-Full-Website.zip`. The enclosed folder must remain named `sit-lab`.
+1. Extract `Octopolugal.github.io-main.zip`, then open the enclosed `Octopolugal.github.io-main` folder. The website folder inside it must remain named `sit-lab`.
 2. Open your repository at https://github.com/Octopolugal/Octopolugal.github.io on the `main` branch.
 3. Choose **Add file → Upload files** at the repository root.
 4. Drag in the whole `sit-lab` folder. Check that paths begin with `sit-lab/`, such as `sit-lab/index.html`. The new files replace files with the same paths.
-5. Enter a message such as `Add transparent light logo to all page headers` and choose **Commit changes**.
+5. Enter a message such as `Add new People profiles and photos` and choose **Commit changes**.
 6. Wait for the Pages deployment in the **Actions** tab, then visit https://octopolugal.github.io/sit-lab/.
 
-This package preserves the site content from main-branch commit `6aee06b` and adds the approved header logo to all five pages. It includes the existing student profiles, photos, publications, presentations, projects, and footer logo. Do not upload the ZIP itself or move its HTML files to the repository root. If you make additional edits on GitHub after that commit, merge them into this package before uploading.
+This package is based on your updated repository ZIP supplied on October 6, 2026. It connects all five student photos to People profiles and updates the grid for desktop, tablet, and phone screens. Your existing biographies, publications, presentations, projects, logos, and original photo files are preserved. Do not upload the ZIP itself or the outer `Octopolugal.github.io-main` folder, or move the HTML files to the repository root. If you edit GitHub again after downloading this package, merge those edits before uploading.
 
 ## Change lab content
 
@@ -26,12 +26,32 @@ Edit `sit-lab/assets/content.js` on GitHub using the pencil icon, then commit yo
 The publication section contains **26 records** from the supplied Google Scholar BibTeX export. Existing student profiles, photos, presentations, and projects are preserved. Remaining records with `sample: true` still display an example label; replace their details and change `sample` to `false` when ready.
 
 - **Lab:** Edit `name`, `fullName`, `tagline`, and `description`. Optional institution, location, email, Scholar, and GitHub links appear only when filled in.
-- **People:** Photos now appear in full color, including before hover. Edit names, roles, and interests; upload photos into `assets/students/`, then set `photo: "assets/students/full-name.jpg"`. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"` or `"center"` to adjust the crop. Missing or broken photos show a clear placeholder.
+- **People:** Edit the `students` list in `assets/content.js`. All five current photos are in `assets/images/` and appear in full color, including before hover. Upload future photos there, then set `photo: "assets/images/full-name.jpg"` with the exact capitalization and extension. Adding a photo file alone does not create a profile; add its record to the list too. Portraits around 800 × 1000 pixels work well. Use `photoPosition: "top"`, `"center"`, `"bottom"`, `"left"`, or `"right"` to adjust the crop. Missing or broken photos show a clear placeholder.
 - **Publications:** Edit title, authors, venue, and year. Use `year: "2026"`; entries sort newest first. Add `paperUrl`, `codeUrl`, or `dataUrl` for resource links. PDF paths can be relative, such as `assets/papers/paper.pdf`.
 - **Presentations:** Edit title, speaker, event, and summary. Use dates such as `date: "2026-09-30"`. Add `slidesUrl`, `videoUrl`, and `eventUrl` when available. Entries sort newest first.
 - **Projects:** Edit title, category, status, summary, question, and approach. Optional team, funding, project website, and code links appear when provided. You may add `image: "assets/images/project-photo.jpg"` and `imageAlt: "A description of the image"` to any project.
 
 To add entries, duplicate an object in the relevant list. Keep commas between objects and quotes around text. Use `[]` for an empty list. Optional links are hidden until a real URL is supplied.
+
+## People update — October 6, 2026
+
+The People page shows the full list. The homepage previews up to six people, so all five current members appear there too. Both pages automatically sort profiles by degree (Ph.D., master's, undergraduate), then alphabetically by the full displayed name within each group. Profiles without a specified degree appear last. Sorting reads each record's `role` field, so use labels such as `Ph.D. student`, `Master's student`, or `Undergraduate researcher`. The grid uses three columns on desktop, two on tablet, and one on phones. Empty biographies and contact links are hidden.
+
+| Name | Photo path | Role |
+| --- | --- | --- |
+| Chenye Zhang | `assets/images/chenye_zhang.jpeg` | Ph.D. student |
+| Hao Jin | `assets/images/hao_jin.jpg` | Ph.D. student |
+| Shuyu Zhang | `assets/images/shuyu_zhang.jpg` | Ph.D. student |
+| Fan Mo | `assets/images/fan_mo.jpeg` | Master's student |
+| Wenjun Teng | `assets/images/wenjun_teng.jpg` | Master's student |
+
+The supplied biographies for Fan Mo, Hao Jin, and Shuyu Zhang are included verbatim in their `interests` fields. Hao and Fan's role labels reflect their stated degree programs. Shuyu's role is `Ph.D. student`, as confirmed by the lab. Website and email links remain optional. The two placeholder profiles have been removed, and all five real profiles use `sample: false`.
+
+For example, to add another person:
+
+```js
+{ name: "Full Name", role: "Student", interests: "", photo: "assets/images/full-name.jpg", photoPosition: "center", website: "", email: "", sample: false }
+```
 
 ## Change design or page headings
 
@@ -64,7 +84,7 @@ All scripts, styles, and images are local. There are no external font requests, 
 | `assets/content.js` | Routine content updates |
 | `assets/styles.css` | Visual design |
 | `assets/site.js` | Rendering and interactions |
-| `assets/images/` | Original logo, PDF, and landscape illustration |
+| `assets/images/` | All five student photos, header and footer logos, original logo PDF, and landscape illustration |
 
 The redesign has been packaged for GitHub Pages. Uploading and committing the files publishes the changes; generating or opening the preview does not change the live site.
 
@@ -96,4 +116,4 @@ the page.
 - Entries ending in “et al.” retain the export's truncated author lists unless a
   complete list was checked against the proceedings. No abstracts were invented.
 
-Your original logo PDF and both current student photo files are included unchanged.
+Your original logo PDF and all five current student photo files are included unchanged.
